@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Add a link</h1>
+
+<form action="{% url 'quicklinks:create' %}" method="post">
+{% csrf_token %}
+{{create_form.as_p}}
+<input type="submit" value="Compress Link!" />
+</form>
+
+<h1>Recent links</h1>
+
+{% for link in links %}
+<h3>
+{% url 'quicklinks:redirect' link.pk as redirect_url %}
+<a href="{{redirect_url}}">{{link.url}}</a>
+</h3>
+<p>Last created: {{link.created}}</p>
+{% endfor %}
+
+</body>
+
+{% endblock %}

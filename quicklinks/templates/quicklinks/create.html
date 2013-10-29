@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Link created</h1>
+
+<p>Access <u>{{link.url}}</u> via the link below:</p>
+
+<p><a href={{full_url}}>{{full_url}}</a></p>
+
+{% endblock %}
